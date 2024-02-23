@@ -5,12 +5,15 @@ import { Link, useNavigate } from "react-router-dom";
 // import testapi
 
 const Homepage = () => {
+    const [isLoading, setIsLoading] = useState(false)
   const [products, setProducts] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
+    setIsLoading(true)
     getAllProductsApi().then(res => {
       setProducts(res.data)
+      setIsLoading(false)
     }).catch(err => {
       console.log(err)
     })
@@ -122,6 +125,14 @@ const Homepage = () => {
       <div>
         <h1 className="mt-5 mb-4">Available products</h1>
         <div class="row row-cols-1 row-cols-md-4 g-4">
+        {isLoading && [1, 2, 3, 4].map((el) => {
+                            return (
+                                <div className="" key={el._id}>
+                                    <Skeleton height={200} />
+                                    <Skeleton count={3} />
+                                </div>
+                            )
+                        })}
           {
             products.map((product) => {
               return (
