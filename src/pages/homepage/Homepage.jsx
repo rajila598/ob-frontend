@@ -128,8 +128,7 @@ const Homepage = () => {
         {isLoading && [1, 2, 3, 4].map((el) => {
                             return (
                                 <div className="" key={el._id}>
-                                    <Skeleton height={200} />
-                                    <Skeleton count={3} />
+                                    <p>Loading........</p>
                                 </div>
                             )
                         })}
