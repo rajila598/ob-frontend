@@ -125,13 +125,7 @@ const Homepage = () => {
       <div>
         <h1 className="mt-5 mb-4">Available products</h1>
         <div class="row row-cols-1 row-cols-md-4 g-4">
-        {isLoading && [1, 2, 3, 4].map((el) => {
-                            return (
-                                <div className="" key={el._id}>
-                                    <p>Loading........</p>
-                                </div>
-                            )
-                        })}
+        {isLoading && <p>Loading. Please Wait.......</p>}
           {
             products.map((product) => {
               return (
